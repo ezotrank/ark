@@ -34,30 +34,205 @@ class Chef
 
       attr_accessor :path, :release_file, :prefix_bin, :prefix_root, :home_dir, :extension, :version
 
-      attribute :owner, :kind_of => String, :default => 'root'
-      attribute :group, :kind_of => [String, Fixnum], :default => 0
-      attribute :url, :kind_of => String, :required => true
-      attribute :path, :kind_of => String, :default => nil
-      attribute :full_path, :kind_of => String, :default => nil
-      attribute :append_env_path, :kind_of => [TrueClass, FalseClass], :default => false
-      attribute :checksum, :regex => /^[a-zA-Z0-9]{64}$/, :default => nil
-      attribute :has_binaries, :kind_of => Array, :default => []
-      attribute :creates, :kind_of => String, :default => nil
-      attribute :release_file, :kind_of => String, :default => ''
-      attribute :strip_leading_dir, :kind_of => [TrueClass, FalseClass], :default => true
-      attribute :mode, :kind_of => Fixnum, :default => 0755
-      attribute :prefix_root, :kind_of => String, :default => nil
-      attribute :prefix_home, :kind_of => String, :default => nil
-      attribute :prefix_bin, :kind_of => String, :default => nil
-      attribute :version, :kind_of => String, :default => nil
-      attribute :home_dir, :kind_of => String, :default => nil
-      attribute :environment, :kind_of => Hash, :default => {}
-      attribute :autoconf_opts, :kind_of => Array, :default => []
-      attribute :make_opts, :kind_of => Array, :default => []
-      attribute :home_dir, :kind_of => String, :default => nil
-      attribute :autoconf_opts, :kind_of => Array, :default => []
-      attribute :extension, :kind_of => String
+      def owner(arg=nil)
+        set_or_return(
+          :owner,
+          arg,
+          :kind_of => String,
+          :default => 'root'
+        )
+      end
 
+      def group(arg=nil)
+        set_or_return(
+          :group,
+          arg,
+          :kind_of => [String, Fixnum],
+          :default => 0
+        )
+      end
+
+      def url(arg=nil)
+        set_or_return(
+          :url,
+          arg,
+          :kind_of => String,
+          :required => true
+        )
+      end
+
+      def path(arg=nil)
+        set_or_return(
+          :path,
+          arg,
+          :kind_of => String,
+          :default => nil
+        )
+      end
+
+      def full_path(arg=nil)
+        set_or_return(
+          :full_path,
+          arg,
+          :kind_of => String,
+          :default => nil
+        )
+      end
+
+      def append_env_path(arg=nil)
+        set_or_return(
+          :append_env_path,
+          arg,
+          :kind_of => [TrueClass, FalseClass],
+          :default => false
+        )
+      end
+
+      def checksum(arg=nil)
+        set_or_return(
+          :checksum,
+          arg,
+          :regex => /^[a-zA-Z0-9]{64}$/,
+          :default => nil
+        )
+      end
+
+      def has_binaries(arg=nil)
+         set_or_return(
+          :has_binaries,
+          arg,
+          :kind_of => Array,
+          :default => []
+        )
+      end
+
+      def creates(arg=nil)
+         set_or_return(
+          :creates,
+          arg,
+          :kind_of => String,
+          :default => nil
+        )
+      end
+
+      def release_file(arg=nil)
+         set_or_return(
+          :release_file,
+          arg,
+          :kind_of => String,
+          :default => ''
+        )
+      end
+
+      def strip_leading_dir(arg=nil)
+         set_or_return(
+          :strip_leading_dir,
+          arg,
+          :kind_of => [TrueClass, FalseClass],
+          :default => true
+        )
+      end
+
+      def mode(arg=nil)
+         set_or_return(
+          :mode,
+          arg,
+          :kind_of => Fixnum,
+          :default => 0755
+        )
+      end
+
+
+      def prefix_root(arg=nil)
+         set_or_return(
+          :prefix_root,
+          arg,
+          :kind_of => String,
+          :default => nil
+        )
+      end
+
+      def prefix_home(arg=nil)
+         set_or_return(
+          :prefix_home,
+          arg,
+          :kind_of => String,
+          :default => nil
+        )
+      end
+
+      def prefix_bin(arg=nil)
+         set_or_return(
+          :prefix_bin,
+          arg,
+          :kind_of => String,
+          :default => nil
+        )
+      end
+      
+      def version(arg=nil)
+         set_or_return(
+          :version,
+          arg,
+          :kind_of => String,
+          :default => nil
+        )
+      end
+
+      def home_dir(arg=nil)
+         set_or_return(
+          :home_dir,
+          arg,
+          :kind_of => String,
+          :default => nil
+        )
+      end
+
+      def environment(arg=nil)
+         set_or_return(
+          :environment,
+          arg,
+          :kind_of => Hash,
+          :default => {}
+        )
+      end
+
+      def autoconf_opts(arg=nil)
+         set_or_return(
+          :autoconf_opts,
+          arg,
+          :kind_of => Array,
+          :default => []
+        )
+      end
+
+      def make_opts(arg=nil)
+         set_or_return(
+          :make_opts,
+          arg,
+          :kind_of => Array,
+          :default => []
+        )
+      end
+      
+      def home_dir(arg=nil)
+         set_or_return(
+          :home_dir,
+          arg,
+          :kind_of => String,
+          :default => nil
+        )
+      end
+
+      def extension(arg=nil)
+         set_or_return(
+          :extension,
+          arg,
+          :kind_of => String
+        )
+      end
+      
+      #attribute :autoconf_opts, :kind_of => Array, :default => []
     end
   end
 end
